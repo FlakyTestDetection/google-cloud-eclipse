@@ -40,6 +40,7 @@ before_script:
   - metacity --sm-disable --replace &
   - sleep 3 # give metacity some time to start
 script: mvn -V -B -Ptravis --fail-at-end verify ${MAVEN_FLAGS}
+     -Ptravis -Perrorprone
      ${ECLIPSE_TARGET:+-Declipse.target=${ECLIPSE_TARGET}}
      --toolchains=.travis-toolchains.xml
      -Dtoolchain.java.runtime=${JAVA_RUNTIME}
